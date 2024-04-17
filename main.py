@@ -15,9 +15,19 @@ from vision import Vision
 #exit()
 
 
-capture = Window_Capture("Roblox")
-roblox_Vision = Vision('test_screenshots/target.jpg')
 
+try:
+    capture = Window_Capture("Roblox")
+except Exception as e:
+    print(f"Failed to capture window: {e}")
+return
+
+try:
+    roblox_vision = Vision('test_screenshots/target.jpg')
+ except FileNotFoundError as e:
+    print(e)
+    return
+except Exception as e:
 
 
 while True:
